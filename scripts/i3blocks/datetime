@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "$(date '+%A, %d / %m / %Y')    $(date '+%H:%M')"
+#command=date '+%A, %Y / %m / %d %H:%M'

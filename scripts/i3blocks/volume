@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if amixer get Master | grep -qP "\[on\]"; then
+	volume=$(amixer get Master | grep -oP '\[\K\d+%')
+	echo "$volume"
+else 
+	echo "muted"
+fi

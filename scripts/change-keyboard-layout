@@ -1,0 +1,11 @@
+#!/bin/bash
+
+layout=$(~/scripts/i3blocks/get-keyboard-layout)
+
+if [ $layout == 'us' ] 
+then
+	setxkbmap pt
+else
+	setxkbmap us
+fi
+
