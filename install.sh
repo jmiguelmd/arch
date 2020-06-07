@@ -7,3 +7,6 @@ cp -r scripts/* ~/scripts/
 cp tmux/.tmux.conf ~/.tmux.conf
 cp xinit/.xinitrc ~/.xinitrc
 cp touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
+
+firefox_profile=$(grep 'Path=' ~/.mozilla/firefox/profiles.ini | sed s/^Path=// | grep release)
+cp firefox/user.js ~/.mozilla/firefox/$firefox_profile/
