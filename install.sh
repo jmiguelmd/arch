@@ -15,3 +15,6 @@ cp gtk/settings.ini ~/.config/gtk-3.0/
 cp gtk/.gtkrc-2.0 ~/
 cp gnome-terminal/user ~/.config/dconf/
 cp -r autokey_scripts/ ~/
+
+cp vim/.vimrc ~/
+cp -r vim/.vim ~/
