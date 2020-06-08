@@ -57,4 +57,5 @@ xf86-video-intel
 xorg-server
 xorg-xbacklight
 xorg-xinit
+xorg-xinput
 xsel
