@@ -16,6 +16,8 @@ cp touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
 mkdir -p $home/.config/i3
 cp i3/config $home/.config/i3/
 cp i3/i3blocks.conf $home/.config/i3/
+mkdir -p $home/.config/rofi
+cp i3/roficonfig $home/.config/rofi/config
 
 cp -r scripts/* $home/scripts/
 
