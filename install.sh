@@ -1,6 +1,7 @@
 #!/bin/bash
 
-home=/home/m
+user=m
+home=/home/$user
 
 pacman -S --needed $(cat pacman/pkglist | grep -v intel-ucode)
 
@@ -29,6 +30,9 @@ mkdir -p $home/.config/dconf/
 cp gnome-terminal/user $home/.config/dconf/
 
 cp -r autokey_scripts/ $home/
+cp -r autokey $home/.config/
+chown -r $user:$user $home/autokey_scripts/
+chown -r $user:$user $home/.config/autokey/
 
 cp vim/.vimrc $home/
 cp -r vim/.vim $home/
