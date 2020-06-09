@@ -32,3 +32,7 @@ cp -r autokey_scripts/ $home/
 
 cp vim/.vimrc $home/
 cp -r vim/.vim $home/
+
+git config --global core.editor vim
+git config --global user.email "jmiguelmd98@gmail.com"
+git config --global user.name "João Dias"
