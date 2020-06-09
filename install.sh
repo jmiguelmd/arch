@@ -40,3 +40,6 @@ cp -r vim/.vim $home/
 git config --global core.editor vim
 git config --global user.email "jmiguelmd98@gmail.com"
 git config --global user.name "João Dias"
+
+# traditional interface names
+ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
