@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pacman -S --needed - < pacman/pkglist
+
 cp bash/.bashrc ~/.bashrc
 cp i3/config ~/.config/i3
 cp i3/i3blocks.conf ~/.config/i3
