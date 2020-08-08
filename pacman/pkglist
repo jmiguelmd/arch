@@ -38,8 +38,10 @@ noto-fonts
 openssh
 p7zip
 patch
+pavucontrol
 picom
 pkgconf
+pulseaudio
 rofi
 rsync
 sshpass
