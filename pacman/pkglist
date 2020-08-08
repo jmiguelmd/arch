@@ -1,5 +1,6 @@
 acpi
 alsa-utils
+amd-ucode
 arandr
 autoconf
 automake
@@ -22,7 +23,6 @@ guake
 i3-wm
 i3blocks
 i3lock
-intel-ucode
 linux
 linux-firmware
 lxappearance
