@@ -3,15 +3,15 @@
 user=m
 home=/home/$user
 
-pacman -S --needed $(cat pacman/pkglist | grep -v amd-ucode)
+sudo pacman -S --needed $(cat pacman/pkglist | grep -v amd-ucode)
 
 # disable beep
-echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf > /dev/null
 
 cp bash/.bashrc $home/.bashrc
 cp tmux/.tmux.conf $home/.tmux.conf
 cp xinit/.xinitrc $home/.xinitrc
-cp touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
+sudo cp touchpad/30-touchpad.conf /etc/X11/xorg.conf.d/
 
 mkdir -p $home/.config/i3
 cp i3/config $home/.config/i3/
@@ -43,9 +43,9 @@ chown -R $user:$user $home/.config/autokey/
 cp vim/.vimrc $home/
 cp -r vim/.vim $home/
 
-runuser -l m -c 'git config --global core.editor vim'
-runuser -l m -c 'git config --global user.email "jmiguelmd98@gmail.com"'
-runuser -l m -c 'git config --global user.name "João Dias"'
+git config --global core.editor vim
+git config --global user.email "jmiguelmd98@gmail.com"
+git config --global user.name "João Dias"
 
 # traditional interface names
-ln -sf /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+sudo ln -sf /dev/null /etc/udev/rules.d/80-net-setup-link.rules
