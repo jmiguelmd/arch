@@ -3,7 +3,7 @@
 user=m
 home=/home/$user
 
-pacman -S --needed $(cat pacman/pkglist | grep -v intel-ucode)
+pacman -S --needed $(cat pacman/pkglist | grep -v amd-ucode)
 
 # disable beep
 echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
@@ -19,10 +19,14 @@ cp i3/i3blocks.conf $home/.config/i3/
 mkdir -p $home/.config/rofi
 cp i3/roficonfig $home/.config/rofi/config
 
+mkdir -p $home/scripts
 cp -r scripts/* $home/scripts/
 
-firefox_profile=$(grep 'Path=' $home/.mozilla/firefox/profiles.ini | sed s/^Path=// | grep release)
-cp firefox/user.js $home/.mozilla/firefox/$firefox_profile/
+if [ -d $home/.mozilla/ ]
+then
+	firefox_profile=$(grep 'Path=' $home/.mozilla/firefox/profiles.ini | sed s/^Path=// | grep release)
+	cp firefox/user.js $home/.mozilla/firefox/$firefox_profile/
+fi
 
 mkdir -p $home/.config/gtk-3.0
 cp gtk/settings.ini $home/.config/gtk-3.0/
@@ -33,15 +37,15 @@ cp gnome-terminal/user $home/.config/dconf/
 
 cp -r autokey_scripts/ $home/
 cp -r autokey $home/.config/
-chown -r $user:$user $home/autokey_scripts/
-chown -r $user:$user $home/.config/autokey/
+chown -R $user:$user $home/autokey_scripts/
+chown -R $user:$user $home/.config/autokey/
 
 cp vim/.vimrc $home/
 cp -r vim/.vim $home/
 
-git config --global core.editor vim
-git config --global user.email "jmiguelmd98@gmail.com"
-git config --global user.name "João Dias"
+runuser -l m -c 'git config --global core.editor vim'
+runuser -l m -c 'git config --global user.email "jmiguelmd98@gmail.com"'
+runuser -l m -c 'git config --global user.name "João Dias"'
 
 # traditional interface names
-ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+ln -sf /dev/null /etc/udev/rules.d/80-net-setup-link.rules
